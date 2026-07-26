@@ -1,0 +1,140 @@
+<!-- <div class="container py-5">
+
+    <div class="card shadow-lg border-0 rounded-4 mx-auto" style="max-width: 750px;">
+
+        <div class="card-body p-4">
+
+            <h2 class="text-center text-primary fw-bold mb-4">
+                <i class="fa-solid fa-list-check me-2"></i>
+                Todo List
+            </h2>
+            <form (ngSubmit)="createTodo()">
+                <div class="input-group mb-4">
+                    <input type="text" class="form-control" placeholder="Add New Task"
+                        name="title" [(ngModel)]="newTodo.title">
+
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fa-solid fa-plus me-1"></i>
+                        Add
+                    </button>
+                </div>
+                
+                <ul *ngFor="let todo of todos" class="list-group list-group-horizontal mb-2 rounded-0">
+
+                    <li
+                        class="list-group-item px-3 py-1 d-flex align-items-center ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent">
+                        <div class="form-check">
+                            <input class="form-check-input me-0" type="checkbox" id="flexCheckChecked3" 
+                             [(ngModel)]="todo.completed">
+                        </div>
+                    </li>
+
+                    <li
+                        class="list-group-item px-3 py-1 d-flex align-items-center flex-grow-1 ps-0 pe-3 py-1 rounded-0 border-0 bg-transparent">
+                        <p class="lead fw-normal mb-0 bg-light w-100 ms-ns ps-2 py-1 rounded" [ngClass]="{'text-decoration-line-through': todo.completed}"
+                        routerLink="['/todos', todo.id]">
+                            {{todo.title}}
+                        </p>
+                    </li>
+                    <li class="list-group-item ps-3 pe-0 py-1 rounded-0 border-0 bg-transparent">
+                        <div class="d-flex flex-row justify-content-end mb-1">
+                            <a class="text-danger pointer"
+   (click)="deleteTodo(todo.id)"
+   title="Delete todo">
+    <i class="fas fa-trash-alt"></i>
+</a>
+                        </div>
+                    </li>
+
+                </ul>
+
+            </form>
+        </div>
+        
+    </div>
+
+</div> -->
+
+
+
+<div class="container py-5">
+
+  <div class="card shadow-lg border-0 rounded-4 mx-auto" style="max-width: 750px;">
+
+    <div class="card-body p-4">
+
+      <h2 class="text-center text-primary fw-bold mb-4">
+        <i class="fa-solid fa-list-check me-2"></i>
+        To Do List
+      </h2>
+
+      <form (ngSubmit)="createTodo()">
+
+        <!-- Add Todo -->
+        <div class="input-group mb-4">
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Add New Task"
+            name="title"
+            [(ngModel)]="newTodo.title">
+
+          <button type="submit" class="btn btn-primary">
+            <i class="fa-solid fa-plus me-1"></i>
+            Add
+          </button>
+        </div>
+
+        <!-- Todo List -->
+        <ul class="list-group">
+
+          <li
+            *ngFor="let todo of todos"
+            class="list-group-item d-flex align-items-center border-0 bg-transparent mb-2">
+
+            <!-- Checkbox -->
+            <div class="form-check me-3">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                [name]="'completed' + todo.id"
+                [(ngModel)]="todo.completed">
+            </div>
+
+            <!-- Title -->
+            <p
+              class="lead fw-normal mb-0 bg-light flex-grow-1 rounded py-2 px-3 shadow"
+              [ngClass]="{
+                'text-decoration-line-through text-muted': todo.completed
+              }"
+              [routerLink]="['/todos', todo.id]"
+              
+              style="cursor: pointer;">
+
+              {{ todo.title }}
+
+            </p>
+
+            <!-- Delete -->
+            <a
+              class="text-danger ms-3"
+              style="cursor: pointer;"
+              title="Delete Todo"
+              (click)="deleteTodo(todo.id)">
+
+              <i class="fas fa-trash-alt fs-5"></i>
+
+            </a>
+
+          </li>
+
+        </ul>
+
+      </form>
+
+    </div>
+
+  </div>
+</div>
+
+

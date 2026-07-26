@@ -1,0 +1,194 @@
+<!-- @if(todo){
+<div class="container py-5">
+
+
+    <div class="row justify-content-center mb-5">
+        <div class="col-md-6">
+            <div class="todo-header d-flex justify-content-center align-items-center">
+                <h2 class="text-danger fw-normal">Todo Details</h2>
+                <h3>Task Title : {{todo?.title}}</h3>
+                <h4>Completed : {{todo?.completed}}</h4>
+
+            </div>
+        </div>
+    </div>
+
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <form id="contactForm" class="needs-validation" (ngSubmit)="updateTodo()" #form1="ngForm">
+
+            </form>
+
+            <div class="row align-items-center mb-3">
+                <label class="col-md-3 fw-bold">
+                    Task Title:
+                </label>
+
+                <div class="col-md-9">
+                    <input type="text" class="form-control" placeholder="Todo Title" [(ngModel)]="todo.title" required
+                        minlength="3" pattern="[A-Z-a-z]{3,}" name="title" #input1="ngModel"
+                        [ngClass]="{ 'is-invalid': (input1.touched || input1.dirty) && input1.invalid }" />
+                </div>
+            </div>
+
+
+            <div class="row align-items-center mb-4">
+                <label class="col-md-3 fw-bold">
+                    Completed:
+                </label>
+
+                <div class="col-md-9">
+                    <input class="form-check-input ms-5 w-50" type="checkbox" id="completed" name="completed"
+                        [(ngModel)]="todo.completed">
+                </div>
+            </div>
+
+
+            <button class="btn btn-primary w-100" [disabled]="!form1.invalid">
+                Update
+            </button>
+
+        </div>
+    </div>
+
+</div>
+
+} -->
+
+
+@if (todo) {
+
+<div class="container py-5">
+
+    <!-- Header -->
+    <div class="row justify-content-center mb-5">
+
+        <div class="col-lg-7">
+
+            <div class="todo-header text-center">
+
+                <h2 class="text-danger mb-4">
+                    To Do Details
+                </h2>
+
+                <div class="row">
+
+                    <div class="col-md-6">
+                        <h5>
+                            <strong>Task Title:</strong><br>
+                            {{ todo.title }}
+                        </h5>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h5>
+                            <strong>Completed:</strong><br>
+                            {{ todo.completed ? 'True' : 'False' }}
+                        </h5>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- Card -->
+
+    <div class="card shadow-lg border-0">
+
+        <div class="card-body p-4">
+
+            <form
+                #form1="ngForm"
+                (ngSubmit)="updateTodo()">
+
+                <!-- Title -->
+
+                <div class="row align-items-center mb-4">
+
+                    <label class="col-md-3 fw-bold">
+                        Task Title:
+                    </label>
+
+                    <div class="col-md-9">
+
+                        <input
+                            type="text"
+                            class="form-control"
+                            name="title"
+                            [(ngModel)]="todo.title"
+                            required
+                            minlength="3"
+                            #title="ngModel">
+
+                        @if(title.invalid && title.touched){
+
+                        <div class="text-danger mt-1">
+
+                            Title must contain at least 3 characters.
+
+                        </div>
+
+                        }
+
+                    </div>
+
+                </div>
+
+                <!-- Completed -->
+
+                <div class="row align-items-center mb-4">
+
+                    <label class="col-md-3 fw-bold">
+                        Completed:
+                    </label>
+
+                    <div class="col-md-9">
+
+                        <div class="form-check">
+
+                            <input
+                                class="form-check-input"
+                                type="checkbox"
+                                id="completed"
+                                name="completed"
+                                [(ngModel)]="todo.completed">
+
+                            <label
+                                class="form-check-label Mark"
+                                for="completed">
+
+                                Mark as completed
+
+                            </label>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- Button -->
+
+                <button
+                    type="submit"
+                    class="btn btn-primary w-100"
+                    [disabled]="form1.invalid">
+
+                    Update
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
+}

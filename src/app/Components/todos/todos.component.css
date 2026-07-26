@@ -1,0 +1,41 @@
+body{
+    background:#f4f6fb;
+}
+
+.card{
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+}
+
+.list-group-item{
+    transition:.3s;
+}
+
+.list-group-item:hover{
+    background:#f8f9fa;
+    transform:translateX(5px);
+}
+
+.btn-outline-danger{
+    transition:.3s;
+}
+
+.btn-outline-danger:hover{
+    transform:rotate(180deg) scale(1.1);
+}
+
+.form-check-input{
+    cursor:pointer;
+}
+
+.form-check-label{
+    cursor:pointer;
+}
+
+
+.pointer{
+    cursor:pointer;
+}
