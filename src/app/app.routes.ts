@@ -7,7 +7,7 @@ import { AboutComponent } from './Components/about/about.component';
 import { NotFoundComponent } from './Components/not-found/not-found.component';
 
 export const routes: Routes = [
-  { path: '', redirectTo: 'todos', pathMatch: 'full' },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent, title: 'home' },
   { path: 'todos', component: TodosComponent, title: 'todos' },
   { path: 'todos/:id',component: TodoDetailsComponent},
